@@ -6,7 +6,7 @@ class play extends Phaser.Scene {
 preload() {
     this.load.image('rocket','./assets/rocket asset.png');
     this.load.image('spaceships','./assets/spaceship asset.png');
-    this.laod.image('starfield','./assets/starfield.png')
+    this.load.image('starfield','./assets/starfield.png');
 
 }
 create() {
@@ -19,5 +19,10 @@ create() {
     this.add.rectangle(0, 0, borderUIsize,game.config.height,0xFFFFFF).setOrigin(0,0);
     this.add.rectangle(game.config.width - borderUIsize, 0, borderUIsize,game.config.height,0xFFFFFF).setOrigin(0,0);
 
+    this.p1Rocket = new Rocket (this, game.config.width/2,game.config.height - (borderUIsize + borderPadding), 'rocket asset').setOrigin(0.5,0);
+
 } 
+update() {
+    this.starfield.tilePositionX -= 4; 
+}
 }
