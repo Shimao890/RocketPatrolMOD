@@ -7,7 +7,7 @@ preload() {
     this.load.image('rocket','./assets/rocket asset.png');
     this.load.image('spaceships','./assets/spaceship asset.png');
     this.load.image('starfield','./assets/starfield.png');
-    this.load.spritesheet('explosion', './assets/explosion.png', {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9} );
+    this.load.spritesheet('explosion', './assets/explosion asset.png', {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9} );
 
 }
 create() {
