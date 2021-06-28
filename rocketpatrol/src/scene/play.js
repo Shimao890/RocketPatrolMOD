@@ -28,13 +28,23 @@ create() {
 
     keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
     keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
-    KeyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
+    keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
     keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
     
     this.anims.create({
         key: 'explode', 
         frames: this.anims.generateFrameNumber('explosion',{start:0, end: 9, first: 0}), 
         frameRate:30});
+    this.p1Score = 0;
+    let scoreConfig = {
+        fontFamily: 'Courier',
+        fontSize: '28px',
+        backgroundColor: '#F3B141' ,
+        color: '#843605',
+        aligh: 'right',
+
+    }
+    
 }
 update() {
     this.starfield.tilePositionX -= 4;
@@ -45,17 +55,14 @@ update() {
     if(this.checkCollision(this.p1Rocket,this.ship03)){
         this.p1Rocket.reset();
         this.shipeExplode(ship03);
-        this.ship03.reset();
     }
     if(this.checkCollision(this.p1Rocket,this.ship02)){
         this.p1Rocket.reset();
         this.shipeExplode(ship02);
-        this.ship02.reset();
     }
     if(this.checkCollision(this.p1Rocket,this.ship01)){
         this.p1Rocket.reset();
         this.shipeExplode(ship01);
-        this.ship01.reset();
     }
 }
 checkCollision(rocket, ship){
