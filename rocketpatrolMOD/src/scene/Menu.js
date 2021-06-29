@@ -28,8 +28,14 @@
         menuConfig.backgroundColor = '#00FF00';
         menuConfig.color = '#000';
 
+        keyLEFT = this.input.keyboard.addKey(Phaser.input.Keyboard.KeyCodes.LEFT);
+
     }
     update() {
+        if(Phaser.input.Keyboard.justDown(keyLEFT)){
+            this.scene.start('playScene');
+        }
+
         
     }
 }
