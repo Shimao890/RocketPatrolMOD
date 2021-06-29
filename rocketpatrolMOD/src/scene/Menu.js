@@ -8,9 +8,9 @@
 
     }
     preload() {
-        this.load.audio('sfx select', './assets/assets_blip_select12.wav');
-        this.load.audio('sfx exlopsion', './assets/assets_explosion38.wav');
-        this.load.audio('sfx shot', './assets/assets_rocket_shot.wav');
+        this.load.audio('sfx select', './assets/mousedown2.wav');
+        this.load.audio('sfx exlopsion', './assets/ship explode.wav');
+        this.load.audio('sfx shot', './assets/rocket shot.wav');
         
         
     }
