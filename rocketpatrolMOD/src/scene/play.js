@@ -26,6 +26,7 @@ create() {
     this.ship02 = new Spaceship (this, game.config.width + borderUIsize * 3, borderUIsize * 5 + borderPadding * 2, 'spaceships', 0, 20).setOrigin(0,0);
     this.ship03 = new Spaceship (this, game.config.width, borderUIsize * 6 + borderPadding * 4, 'spaceships', 0, 10).setOrigin(0,0);
     this.ship04 = new SpaceshipReverse (this, 0, game.config.height - borderPadding * 4, 'spaceships', 0, 20 ).setOrigin(0,0);
+    
 
     keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
     keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
