@@ -60,7 +60,7 @@ create() {
 }
 update() {
     this.starfield.tilePositionX -= 4;
-    if(this.gameOver && Phaser.input.Keyboard.JustDown(keyR)){
+    if(this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)){
         this.scene.restart();
     }
     if(this.gameOver && Phaser.input.Keyboard.JustDown(keyLEFT)){
