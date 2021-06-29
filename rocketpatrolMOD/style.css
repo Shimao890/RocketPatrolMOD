@@ -1,0 +1,8 @@
+#titleContainer {
+  
+    font-family: starcraftFont;
+  }
+ @font-face {
+    font-family: starcraftFont;
+    src: './assets/starcraft.ttf';
+  }

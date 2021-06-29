@@ -16,7 +16,7 @@
     }
     create() {
         let menuConfig = {
-            fontFamily: 'Courier',
+            fontFamily: 'starcraftFont',
             fontSize: '28px',
             backgroundColor: '#F3b141',
             color: '#843605',
