@@ -52,7 +52,7 @@ create() {
     this.scoreLeft = this.add.text(borderUIsize + borderPadding, borderUIsize + borderPadding * 2, this.p1Score ,scoreConfig);
     this.gameOver = false;
     scoreConfig.fixedWidth = 0;
-    this.clock = this.time.delayedCall(1000, () => {
+    this.clock = this.time.delayedCall(60000, () => {
         this.add.text(game.config.width /2, game.config.height/2, 'Game Over', scoreConfig).setOrigin(0.5);
         this.add.text(game.config.width /2, game.config.height + 64, 'Press R to restart or <- to Menu', scoreConfig).setOrigin(0.5);
         this.gameOver = true;
