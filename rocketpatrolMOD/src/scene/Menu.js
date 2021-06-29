@@ -32,7 +32,7 @@
 
     }
     update() {
-        if(Phaser.Input.Keyboard.justDown(keyLEFT)){
+        if(Phaser.Input.Keyboard.JustDown(keyLEFT)){
             this.scene.start('playScene');
         }
 
