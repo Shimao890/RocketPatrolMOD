@@ -50,13 +50,22 @@ create() {
         fixedWidth: 100
     }
     this.scoreLeft = this.add.text(borderUIsize + borderPadding, borderUIsize + borderPadding * 2, this.p1Score ,scoreConfig);
+    this.gameOver = false;
+    scoreConfig.fixedWidth = 0;
+    this.clock = this.time.delayedCall(60000, () => {
+        this.add.text(game.config.width /2, game.config.height/2, 'Game Over', scoreConfig).setOrigin(0.5);
+        this.add.text(game.config.width /2, game.config.height + 64, 'Press R to restart or <- to Menu', scoreConfig).setOrigin(0.5);
+        this.gameOver = true;
+    },null, this);
 }
 update() {
     this.starfield.tilePositionX -= 4;
+    if(!this.gameOver) {
     this.p1Rocket.update();
     this.ship01.update();
     this.ship02.update();
     this.ship03.update();
+    }
     if(this.checkCollision(this.p1Rocket,this.ship03)){
         this.p1Rocket.reset();
         this.shipExplode(this.ship03);
