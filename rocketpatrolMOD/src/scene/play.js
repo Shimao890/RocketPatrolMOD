@@ -8,6 +8,7 @@ preload() {
     this.load.image('spaceships','./assets/spaceship asset.png');
     this.load.image('starfield','./assets/starfield.jpg');
     this.load.spritesheet('explosion', './assets/explosion asset.png', {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9} );
+    this.load.audio('sfx select', './assets/mousedown2.wav');
 
 }
 create() {
@@ -65,9 +66,11 @@ create() {
 update() {
     this.starfield.tilePositionX -= 4;
     if(this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)){
+        this.load.audio('sfx select', './assets/mousedown2.wav');
         this.scene.restart();
     }
     if(this.gameOver && Phaser.Input.Keyboard.JustDown(keyM)){
+        this.load.audio('sfx select', './assets/mousedown2.wav');
         this.scene.start('menuScene');
     }
 
@@ -89,6 +92,7 @@ update() {
         this.p1Rocket.reset();
         this.shipExplode(this.ship01);
     }
+
 }
 checkCollision(rocket, ship){
     if(rocket.x < ship.x + ship.width && 
