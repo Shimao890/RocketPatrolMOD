@@ -8,7 +8,11 @@
 
     }
     preload() {
-    
+        this.load.audio('sfx select', './assets/assets_blip_select12.wav');
+        this.load.audio('sfx exlopsion', './assets/assets_explosion38.wav');
+        this.load.audio('sfx shot', './assets/assets_rocket_shot.wav');
+        
+        
     }
     create() {
         let menuConfig = {
@@ -36,6 +40,7 @@
         if(Phaser.Input.Keyboard.JustDown(keyLEFT)){
             this.scene.start('playScene');
         }
+        this.sound.play('sfx select');
 
         
     }

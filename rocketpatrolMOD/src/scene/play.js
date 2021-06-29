@@ -108,6 +108,7 @@ shipExplode(ship) {
     })
     this.p1Score += ship.points;
     this.scoreLeft.text = this.p1Score;
+    this.sound.play('sfx exlopsion');
 
 }   
 }
