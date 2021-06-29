@@ -53,6 +53,9 @@ create() {
     this.scoreLeft = this.add.text(borderUIsize + borderPadding, borderUIsize + borderPadding * 2, this.p1Score ,scoreConfig);
     this.gameOver = false;
     scoreConfig.fixedWidth = 0;
+    this.clock1 = this.time.delayedCall(30000, () =>{
+        Spaceship.moveSpeed = 5;
+    })
     this.clock = this.time.delayedCall(60000, () => {
         this.add.text(game.config.width /2, game.config.height/2, 'Game Over', scoreConfig).setOrigin(0.5);
         this.add.text(game.config.width /2, game.config.height/2 + 64, 'Press R to restart or M to Menu', scoreConfig).setOrigin(0.5);
