@@ -30,6 +30,7 @@ create() {
     keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
     keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
     keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
+    keyM = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
     
     this.anims.create({
         key: 'explode', 
@@ -54,7 +55,7 @@ create() {
     scoreConfig.fixedWidth = 0;
     this.clock = this.time.delayedCall(60000, () => {
         this.add.text(game.config.width /2, game.config.height/2, 'Game Over', scoreConfig).setOrigin(0.5);
-        this.add.text(game.config.width /2, game.config.height/2 + 64, 'Press R to restart or <- to Menu', scoreConfig).setOrigin(0.5);
+        this.add.text(game.config.width /2, game.config.height/2 + 64, 'Press R to restart or M to Menu', scoreConfig).setOrigin(0.5);
         this.gameOver = true;
     },null, this);
 }
@@ -63,7 +64,7 @@ update() {
     if(this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)){
         this.scene.restart();
     }
-    if(this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)){
+    if(this.gameOver && Phaser.Input.Keyboard.JustDown(keyM)){
         this.scene.start('menuScene');
     }
 
