@@ -17,7 +17,7 @@
     create() {
         let menuConfig = {
             fontFamily: 'starcraftFont',
-            fontSize: '28px',
+            fontSize: '40px',
             backgroundColor: '#F3b141',
             color: '#843605',
             aligh: 'right',
