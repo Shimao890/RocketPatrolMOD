@@ -27,7 +27,7 @@
             },
             fixedWidth: 0
         }
-        this.add.text(game.config.width / 2, game.config.height / 2 -(borderUIsize + borderPadding), 'rocket Patrol', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width / 2, game.config.height / 2 -(borderUIsize + borderPadding), 'ROCKET PATROL', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, game.config.height/ 2 , 'Use arrow to move and F to fire', menuConfig).setOrigin(0.5);
         this.add.text(game.config.width/2, game.config.height/2 + borderUIsize + borderPadding, 'Use left arrow to start the game', menuConfig).setOrigin(0.5);
         menuConfig.backgroundColor = '#00FF00';
