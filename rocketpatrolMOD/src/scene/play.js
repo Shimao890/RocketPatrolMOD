@@ -60,6 +60,13 @@ create() {
 }
 update() {
     this.starfield.tilePositionX -= 4;
+    if(this.gameOver && Phaser.input.Keyboard.JustDown(KeyR)){
+        this.scene.restart();
+    }
+    if(this.gameOver && Phaser.input.Keyboard.JustDown(KeyLEFT)){
+        this.scene.start('menuScene');
+    }
+
     if(!this.gameOver) {
     this.p1Rocket.update();
     this.ship01.update();
