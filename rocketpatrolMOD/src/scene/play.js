@@ -54,7 +54,7 @@ create() {
     this.gameOver = false;
     scoreConfig.fixedWidth = 0;
     this.clock1 = this.time.delayedCall(30000, () =>{
-        Spaceship.moveSpeed = 5;
+        Spaceship.moveSpeed = 10;
     })
     this.clock = this.time.delayedCall(60000, () => {
         this.add.text(game.config.width /2, game.config.height/2, 'Game Over', scoreConfig).setOrigin(0.5);
