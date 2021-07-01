@@ -8,9 +8,9 @@
 
     }
     preload() {
-        this.load.audio('sfx select', './assets/mousedown2.wav');
-        this.load.audio('sfx exlopsion', './assets/ship explode.wav');
-        this.load.audio('sfx shot', './assets/rocket shot.wav');
+        this.load.audio('sfx select', './rocketpatrolMOD/assets/mousedown2.wav');
+        this.load.audio('sfx exlopsion', './rocketpatrolMOD/assets/ship explode.wav');
+        this.load.audio('sfx shot', './rocketpatrolMOD/assets/rocket shot.wav');
         
         
     }

@@ -7,8 +7,9 @@ preload() {
     this.load.image('rocket','./rocketpatrolMOD/assets/rocket asset.png');
     this.load.image('spaceships','./rocketpatrolMOD/assets/spaceship asset.png');
     this.load.image('starfield','./rocketpatrolMOD/assets/starfield.jpg');
-    this.load.spritesheet('explosion', './assets/explosion asset.png', {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9} );
+    this.load.spritesheet('explosion', './rocketpatrolMOD/assets/explosion asset.png', {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9} );
     this.load.audio('sfx select', './rocketpatrolMOD/assets/mousedown2.wav');
+    this.load.audio('sfx shot','./rocketpatrolMOD/assets/rocket shot.wav');
 
 }
 create() {
