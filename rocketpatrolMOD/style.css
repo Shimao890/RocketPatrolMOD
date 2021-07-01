@@ -1,5 +1,5 @@
 
  @font-face {
     font-family: starcraftFont;
-    src: 'https://www.dafont.com/starcraft.font';
+    src: url(https://www.dafont.com/starcraft.font);
   }
