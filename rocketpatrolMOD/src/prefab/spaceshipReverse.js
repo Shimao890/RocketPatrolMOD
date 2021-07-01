@@ -3,7 +3,7 @@ class SpaceshipReverse extends Phaser.GameObjects.Sprite {
         super(scene, x, y, texture, frame);
         scene.add.existing(this);
         this.points = pointValue;
-        this.moveSpeed = 5;
+        this.moveSpeed = 4;
     }
     update() {
         this.x += this.moveSpeed;

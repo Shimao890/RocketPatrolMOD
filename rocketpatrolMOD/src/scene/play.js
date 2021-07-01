@@ -26,7 +26,6 @@ create() {
     this.ship01 = new Spaceship (this, game.config.width + borderUIsize * 6, borderUIsize * 4, 'spaceships', 0, 30).setOrigin(0,0);
     this.ship02 = new Spaceship (this, game.config.width + borderUIsize * 3, borderUIsize * 5 + borderPadding * 2, 'spaceships', 0, 20).setOrigin(0,0);
     this.ship03 = new Spaceship (this, game.config.width, borderUIsize * 6 + borderPadding * 4, 'spaceships', 0, 10).setOrigin(0,0);
-    this.ship04 = new SpaceshipReverse (this, 0, game.config.height - borderPadding * 4, 'spaceships', 0, 20 ).setOrigin(0,0);
     
 
     keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
@@ -58,7 +57,7 @@ create() {
     scoreConfig.fixedWidth = 0;
     this.clock = this.time.delayedCall(30000, () => {
         Spaceship.moveSpeed = 6;
-    })
+    },null, this);
     this.clock = this.time.delayedCall(60000, () => {
         this.add.text(game.config.width /2, game.config.height/2, 'Game Over', scoreConfig).setOrigin(0.5);
         this.add.text(game.config.width /2, game.config.height/2 + 64, 'Press R to restart or M to Menu', scoreConfig).setOrigin(0.5);
@@ -81,7 +80,6 @@ update() {
     this.ship01.update();
     this.ship02.update();
     this.ship03.update();
-    this.ship04.update();
     }
     if(this.checkCollision(this.p1Rocket,this.ship03)){
         this.p1Rocket.reset();
@@ -94,10 +92,6 @@ update() {
     if(this.checkCollision(this.p1Rocket,this.ship01)){
         this.p1Rocket.reset();
         this.shipExplode(this.ship01);
-    }
-    if(this.checkCollision(this.p1Rocket,this.ship04)){
-        this.p1Rocket.reset();
-        this.shipExplode(this.ship04);
     }
 
 }
@@ -119,7 +113,7 @@ shipExplode(ship) {
         ship.reset();
         ship.alpha = 1;
         boom.destroy();
-    })
+    });
     this.p1Score += ship.points;
     this.scoreLeft.text = this.p1Score;
     this.sound.play('sfx exlopsion');
