@@ -55,9 +55,6 @@ create() {
     this.scoreLeft = this.add.text(borderUIsize + borderPadding, borderUIsize + borderPadding * 2, this.p1Score ,scoreConfig);
     this.gameOver = false;
     scoreConfig.fixedWidth = 0;
-    this.clock = this.time.delayedCall(30000, () => {
-        Spaceship.moveSpeed = 6;
-    },null, this);
     this.clock = this.time.delayedCall(60000, () => {
         this.add.text(game.config.width /2, game.config.height/2, 'Game Over', scoreConfig).setOrigin(0.5);
         this.add.text(game.config.width /2, game.config.height/2 + 64, 'Press R to restart or M to Menu', scoreConfig).setOrigin(0.5);
@@ -106,10 +103,10 @@ checkCollision(rocket, ship){
 
 }
 shipExplode(ship) {
-    ship.alpha - 0;
+    ship.alpha = 0;
     let boom = this.add.sprite(ship.x,ship.y,'explosion').setOrigin(0,0);
     boom.anims.play('explode');
-    boom.on('animationComplete', () => {
+    boom.on('animationcomplete', () => {
         ship.reset();
         ship.alpha = 1;
         boom.destroy();
