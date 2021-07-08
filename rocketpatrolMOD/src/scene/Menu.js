@@ -16,11 +16,11 @@
     }
     create() {
         let menuConfig = {
-            fontFamily: 'starcraftFont',
+            fontFamily: 'Georgia',
             fontSize: '40px',
             backgroundColor: '#F3b141',
             color: '#843605',
-            aligh: 'right',
+            aligh: 'center',
             padding:{
                 top: 5,
                 bottom: 5,
@@ -38,10 +38,8 @@
     }
     update() {
         if(Phaser.Input.Keyboard.JustDown(keyLEFT)){
+            this.sound.play('sfx select');
             this.scene.start('playScene');
         }
-        this.sound.play('sfx select');
-
-        
     }
 }

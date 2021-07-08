@@ -4,7 +4,7 @@ class Spaceship extends Phaser.GameObjects.Sprite {
         scene.add.existing(this);
         this.points = pointValue;
         this.moveSpeed = 3;
-        this.clock = scene.time.delayedCall(3000, () => {
+        this.clock = scene.time.delayedCall(30000, () => {
             this.moveSpeed = 6;
         },null, this);
         
