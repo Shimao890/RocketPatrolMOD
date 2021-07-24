@@ -34,6 +34,9 @@
         menuConfig.color = '#000';
 
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
+        game.settings = {
+            mouseCon: false
+        }
 
     }
     update() {

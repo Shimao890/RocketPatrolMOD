@@ -8,6 +8,7 @@ let game = new Phaser.Game(config);
 let borderUIsize = game.config.height / 15;
 let borderPadding = borderUIsize/3;
 let keyF,keyR, keyLEFT, keyRIGHT, keyM;
+let input, mouse;
 // rubric: I finished the tutorial. 
 //Implement the speed increase. 
 //new scrolling background. 
@@ -17,4 +18,5 @@ let keyF,keyR, keyLEFT, keyRIGHT, keyM;
 //I added a new animatated sprite to the spaceship enemy.
 // add new background music in the play scene.
 //The sound effect is from StarCraft main theme sound.
-//
+//I added a new kind of spaceship which is faster, smaller and worth more point.
+//add 4 different sound effects when rocket hit spaceship.

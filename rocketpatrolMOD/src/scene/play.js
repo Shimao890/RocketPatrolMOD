@@ -6,11 +6,17 @@ class play extends Phaser.Scene {
 preload() {
     this.load.image('rocket','./rocketpatrolMOD/assets/rocket asset.png');
     this.load.image('spaceships','./rocketpatrolMOD/assets/spaceship asset.png');
+    this.load.image('spaceship2','./rocketpatrolMOD/assets/spaceshipNew.png');
     this.load.image('starfield','./rocketpatrolMOD/assets/starfield.jpg');
     this.load.spritesheet('explosion', './rocketpatrolMOD/assets/explosion asset.png', {frameWidth: 64, frameHeight: 32, startFrame: 0, endFrame: 9} );
     this.load.audio('sfx select', './rocketpatrolMOD/assets/mousedown2.wav');
     this.load.audio('sfx shot','./rocketpatrolMOD/assets/rocket shot.wav');
     this.load.audio('background music','./rocketpatrolMOD/assets/Starcraft Main Title.mp3');
+    this.load.audio('explosion1','./rocketpatrolMOD/assets/explo1.wav');
+    this.load.audio('explosion3','./rocketpatrolMOD/assets/explo3.wav');
+    this.load.audio('explosion4','./rocketpatrolMOD/assets/explo4.wav');
+    this.load.audio('explosion','./rocketpatrolMOD/assets/explo0.wav');
+
 
 }
 create() {
@@ -27,7 +33,8 @@ create() {
     this.ship01 = new Spaceship (this, game.config.width + borderUIsize * 6, borderUIsize * 4, 'spaceships', 0, 30).setOrigin(0,0);
     this.ship02 = new Spaceship (this, game.config.width + borderUIsize * 3, borderUIsize * 5 + borderPadding * 2, 'spaceships', 0, 20).setOrigin(0,0);
     this.ship03 = new Spaceship (this, game.config.width, borderUIsize * 6 + borderPadding * 4, 'spaceships', 0, 10).setOrigin(0,0);
-    this.ship04 = new Spaceship (this, game.config.width  + borderUIsize * 6, borderUIsize * 6 + borderPadding * 8, 'spaceships', 0, 10).setOrigin(0,0);
+    this.ship05 = new Spaceship (this, game.config.width  + borderUIsize * 6, borderUIsize * 6 + borderPadding * 6, 'spaceships', 0, 10).setOrigin(0,0);
+    this.ship04 = new Spaceship2 (this, game.config.width  + borderUIsize * 6, borderUIsize * 6 + borderPadding * 8, 'spaceship2', 0, 40).setOrigin(0,0);
     
 
     keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
@@ -35,6 +42,8 @@ create() {
     keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
     keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
     keyM = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.M);
+    input = this.input;
+    mouse = this.input.mousePointer;
     
     this.anims.create({
         key: 'explode', 
@@ -68,10 +77,11 @@ update() {
     this.starfield.tilePositionX -= 4;
     if(this.gameOver && Phaser.Input.Keyboard.JustDown(keyR)){
         this.load.audio('sfx select', './assets/mousedown2.wav');
-        this.scene.restart();
+        this.scene.restart('background music')
     }
     if(this.gameOver && Phaser.Input.Keyboard.JustDown(keyM)){
         this.load.audio('sfx select', './assets/mousedown2.wav');
+        this.sound.get('background music').stop();
         this.scene.start('menuScene');
     }
 
@@ -81,6 +91,7 @@ update() {
     this.ship02.update();
     this.ship03.update();
     this.ship04.update();
+    this.ship05.update();
     }
     if(this.checkCollision(this.p1Rocket,this.ship03)){
         this.p1Rocket.reset();
@@ -98,6 +109,10 @@ update() {
         this.p1Rocket.reset();
         this.shipExplode(this.ship04);
     }
+    if(this.checkCollision(this.p1Rocket,this.ship04)){
+        this.p1Rocket.reset();
+        this.shipExplode(this.ship05);
+    }
 
 }
 checkCollision(rocket, ship){
@@ -110,6 +125,10 @@ checkCollision(rocket, ship){
     return false;
 
 }
+getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+  
 shipExplode(ship) {
     ship.alpha = 0;
     let boom = this.add.sprite(ship.x,ship.y,'explosion').setOrigin(0,0);
@@ -121,7 +140,18 @@ shipExplode(ship) {
     });
     this.p1Score += ship.points;
     this.scoreLeft.text = this.p1Score;
-    this.sound.play('sfx exlopsion');
+    if(this.getRandomInt(5) == 0 || this.getRandomInt(5) == 1) {
+    this.sound.play('exlopsion');
+    }
+    if(this.getRandomInt(5) == 2) {
+        this.sound.play('explosion1');
+    }
+    if(this.getRandomInt(5) == 3) {
+            this.sound.play('explosion3');
+    }
+    if(this.getRandomInt(5) == 4) {
+        this.sound.play('explosion4');
+    }    
 
 }   
 }
